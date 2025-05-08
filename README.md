@@ -1,5 +1,5 @@
 # AutoConnect
-Automatically connect to servers that are full, instead of having to manually spam-connect.
+Automatically connect to servers that are full, instead of having to manually spam connect.
 
 ## Features
 🔁 Automatically connect to a server until a spot opens up<br>
