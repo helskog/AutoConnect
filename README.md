@@ -9,7 +9,7 @@ Automatically connect to servers that are full, instead of having to manually sp
 ## How It Works
 AutoConnect will very simply try to connect again if you have been kicked from a server with the "Error: Server full" message. Effectively removing the need to spam-connect on newly wiped servers.
 
-![](https://github.com/AutoConnect/preview.gif)
+![](https://github.com/helskog/AutoConnect/blob/master/preview.gif)
 
 ## Installing AutoConnect
 1️⃣ Navigate to the game install folder. Typically: `C:\Program Files (x86)\Steam\steamapps\common\VRising`<br>
