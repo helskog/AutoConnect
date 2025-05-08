@@ -9,9 +9,9 @@ Automatically connect to servers that are full, instead of having to manually sp
 ## How It Works
 AutoConnect will very simply try to connect again if you have been kicked from a server with the "Error: Server full" message. Effectively removing the need to spam-connect on newly wiped servers.
 
-<img src="https://i.ibb.co/SwZJCYNd/VRising-n-WDrvle7-Vn.gif"/>
+![](https://i.ibb.co/SwZJCYNd/VRising-n-WDrvle7-Vn.gif)
 
-## Installing Crossveil
+## Installing AutoConnect
 1️⃣ Navigate to the game install folder. Typically: `C:\Program Files (x86)\Steam\steamapps\common\VRising`<br>
 
 2️⃣ Make sure you have the latest version of [BepInEx](https://thunderstore.io/c/v-rising/p/BepInEx/BepInExPack_V_Rising/) for V Rising, if installed for the first time make sure to run the game at least once and close it afterwards for the plugins & config directories to be created automatically.<br>
