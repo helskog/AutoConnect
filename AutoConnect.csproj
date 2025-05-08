@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>AutoConnect</AssemblyName>
+    <Description>A V Rising mod to customize your crosshairs</Description>
+    <Version>0.1.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>AutoConnect</RootNamespace>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <FileVersion>$(Version)</FileVersion>
+	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	<PostBuildEvent Condition="'$(OS)' == 'Windows_NT'">
+		move /Y "$(TargetDir)AutoConnect.dll" "C:\Program Files (x86)\Steam\steamapps\common\VRising\BepInEx\Plugins\AutoConnect.dll"
+	</PostBuildEvent>
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.691" />
+		<PackageReference Include="BepInEx.Core" Version="6.0.0-be.691" />
+		<PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+		<PackageReference Include="Docker.DotNet" Version="3.125.15" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="VRising.Unhollowed.Client" Version="1.1.0.9121701" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Include=".github\workflows\build.yml" />
+	</ItemGroup>
+</Project>

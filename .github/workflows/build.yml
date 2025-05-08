@@ -1,0 +1,66 @@
+name: Build
+
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+
+jobs:
+  build:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+
+    steps:  
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v1.1.1
+        with:
+          versionSpec: "5.x"
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Determine Version
+        id: gitversion
+        uses: gittools/actions/gitversion/execute@v1.1.1
+        with:
+          additionalArguments: '/updateprojectfiles /overrideconfig "mode=Mainline"'
+
+      - name: Sync versionNumber in thunderstore.toml
+        run: sed -i 's/^versionNumber = .*/versionNumber = "${{ steps.gitversion.outputs.majorMinorPatch }}"/' thunderstore.toml
+        shell: bash
+
+      - name: Build (Release)
+        run: dotnet build . --configuration Release --no-restore -p:Version=$GitVersion_SemVer -p:PostBuildEvent=
+
+      - name: Install Thunderstore CLI (tcli)
+        run: dotnet tool install --global tcli
+        
+      - name: Build Thunderstore Package
+        run: tcli build --config-path ./thunderstore.toml
+
+      - name: Upload artifacts during pipeline for testing
+        uses: actions/upload-artifact@v4
+        with:
+          name: thunderstore packages
+          path: ./build/helskog-Crossveil-${{ steps.gitversion.outputs.majorMinorPatch }}.zip
+
+          retention-days: 1
+          compression-level: 0    
+      
+      - name: GH Release
+        uses: softprops/action-gh-release@v2
+        if: github.event_name == 'push'
+        with:
+          body: Automatic pre-release of ${{ env.GitVersion_MajorMinorPatch }} for ${{ env.GitVersion_ShortSha }}
+          name: v${{ env.GitVersion_MajorMinorPatch }}
+          fail_on_unmatched_files: true
+          prerelease: true
+          tag_name: v${{ env.GitVersion_MajorMinorPatch }}
+          files: ./build/helskog-Crossveil-${{ steps.gitversion.outputs.majorMinorPatch }}.zip
