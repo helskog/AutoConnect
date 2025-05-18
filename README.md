@@ -16,8 +16,6 @@ AutoConnect will very simply try to connect again if you have been kicked from a
 
 2️⃣ Make sure you have the latest version of [BepInEx](https://thunderstore.io/c/v-rising/p/BepInEx/BepInExPack_V_Rising/) for V Rising, if installed for the first time make sure to run the game at least once and close it afterwards for the plugins & config directories to be created automatically.<br>
 
-❗**Due to the recent 1.1 Invaders Of Oakveil update you need to use [this](https://github.com/decaprime/VRising-Modding/releases/tag/1.733.2) release candidate of BepInEx for this mod to work! The same installation method still applies, this message will be removed once BepInExPack has been updated on Thunderstore.**
-
 3️⃣ ️Place the `AutoConnect.dll` file inside the `\BepInEx\plugins` folder.<br>
 
 ## Options Menu

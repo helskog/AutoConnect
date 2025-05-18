@@ -18,9 +18,7 @@
 		<PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.691" />
 		<PackageReference Include="BepInEx.Core" Version="6.0.0-be.691" />
 		<PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
-		<PackageReference Include="Docker.DotNet" Version="3.125.15" />
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-		<PackageReference Include="VRising.Unhollowed.Client" Version="1.1.0.9121701" />
+		<PackageReference Include="VRising.Unhollowed.Client" Version="1.1.8.9179701" />
 	</ItemGroup>
 	<ItemGroup>
 	  <None Include=".github\workflows\build.yml" />
