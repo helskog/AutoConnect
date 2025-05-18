@@ -19,7 +19,7 @@ public class Configuration
 				30f,
 				new ConfigDescription(
 						"The amount of seconds to wait before reconnecting.",
-						new AcceptableValueRange<float>(5f, 120f)
+						new AcceptableValueRange<float>(3f, 120f)
 				)
 		);
 
